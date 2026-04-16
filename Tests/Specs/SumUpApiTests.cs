@@ -2,7 +2,7 @@ using Microsoft.Playwright;
 using NUnit.Framework;
 using PlaywrightTests.Config;
 
-namespace PlaywrightTests.Tests.Api;
+namespace PlaywrightTests.Tests.Specs;
 
 /// <summary>
 /// Exemplo de Testes de API utilizando o Playwright APIRequestContext.

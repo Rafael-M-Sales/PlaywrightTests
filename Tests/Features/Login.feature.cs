@@ -11,7 +11,7 @@
 #region Designer generated code
 #pragma warning disable
 using Reqnroll;
-namespace PlaywrightTests.Features
+namespace PlaywrightTests.Tests.Features
 {
     
     
@@ -27,7 +27,7 @@ namespace PlaywrightTests.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("pt"), "Features", "Login na aplicação SumUp", "  Como um cliente da SumUp\r\n  Eu quero realizar login na minha conta\r\n  Para que " +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("pt"), "Tests/Features", "Login na aplicação SumUp", "  Como um cliente da SumUp\r\n  Eu quero realizar login na minha conta\r\n  Para que " +
                 "eu possa gerenciar minhas vendas e maquininhas", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
 #line 1 "Login.feature"
@@ -115,7 +115,7 @@ namespace PlaywrightTests.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Login.feature.ndjson", 5);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Tests/Features/Login.feature.ndjson", 5);
         }
         
         [global::NUnit.Framework.TestAttribute()]

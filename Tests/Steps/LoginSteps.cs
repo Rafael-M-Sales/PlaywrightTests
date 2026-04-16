@@ -1,9 +1,9 @@
 using Microsoft.Playwright;
 using NUnit.Framework;
-using PlaywrightTests.Pages;
+using PlaywrightTests.Tests.PageObjects;
 using Reqnroll;
 
-namespace PlaywrightTests.Steps;
+namespace PlaywrightTests.Tests.Steps;
 
 [Binding]
 public class LoginSteps

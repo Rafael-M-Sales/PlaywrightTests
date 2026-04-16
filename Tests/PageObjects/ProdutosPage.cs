@@ -1,7 +1,7 @@
 using Microsoft.Playwright;
 using PlaywrightTests.Config;
 
-namespace PlaywrightTests.Pages;
+namespace PlaywrightTests.Tests.PageObjects;
 
 /// <summary>
 /// Page Object da Página de Produtos/Maquininhas da SumUp.

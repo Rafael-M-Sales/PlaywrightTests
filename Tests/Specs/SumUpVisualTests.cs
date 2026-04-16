@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PlaywrightTests.Config;
 using PlaywrightTests.Utils;
 
-namespace PlaywrightTests.Tests.Visual;
+namespace PlaywrightTests.Tests.Specs;
 
 /// <summary>
 /// Testes Visuais para garantir que a interface da SumUp não sofre regressões estéticas.

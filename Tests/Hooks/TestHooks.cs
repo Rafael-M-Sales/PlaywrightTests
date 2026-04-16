@@ -5,7 +5,7 @@ using Reqnroll;
 using Allure.Net.Commons;
 using Microsoft.VisualBasic;
 
-namespace PlaywrightTests.Hooks;
+namespace PlaywrightTests.Tests.Hooks;
 
 [Binding]
 public class TestHooks

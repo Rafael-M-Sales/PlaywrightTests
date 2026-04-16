@@ -2,7 +2,7 @@ using Microsoft.Playwright;
 using PlaywrightTests.Config;
 using PlaywrightTests.Utils;
 
-namespace PlaywrightTests.Pages;
+namespace PlaywrightTests.Tests.PageObjects;
 
 /// <summary>
 /// Classe base para todos os Page Objects do projeto.

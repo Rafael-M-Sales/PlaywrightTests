@@ -2,7 +2,7 @@ using Microsoft.Playwright;
 using NUnit.Framework;
 using PlaywrightTests.Config;
 
-namespace PlaywrightTests.Tests.Performance;
+namespace PlaywrightTests.Tests.Specs;
 
 /// <summary>
 /// Testes de Performance básica utilizando métricas do navegador (Performance Timeline API).
