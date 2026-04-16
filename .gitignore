@@ -1,0 +1,33 @@
+# .NET Core
+[Bb]in/
+[Oo]bj/
+[Tt]estResults/
+[Aa]llure-results/
+[Ee]videncias/
+VisualBaselines/
+
+# User-specific files
+*.rsuser
+*.user
+*.userosscache
+*.sln.doccache
+
+# Visual Studio Code
+.vscode/
+
+# Playwright
+playwright-report/
+test-results/
+.auth/
+
+# Config
+Config/storageState.json
+appsettings.local.json
+
+# Docker/K8S
+.docker/
+.kube/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sumup-automation-tests
+  labels:
+    app: automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: automation
+  template:
+    metadata:
+      labels:
+        app: automation
+    spec:
+      containers:
+      - name: sumup-tests
+        image: rafaelm-sales/sumup-automation-tests:latest
+        env:
+        - name: TEST_ENVIRONMENT
+          value: "producao"
+        resources:
+          limits:
+            cpu: "1.0"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sumup-regression-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: test-runner
+        image: rafaelm-sales/sumup-automation-tests:latest
+      restartPolicy: Never
+  backoffLimit: 2

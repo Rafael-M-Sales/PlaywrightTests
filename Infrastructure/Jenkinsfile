@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    environment {
+        DOTNET_SDK = '8.0'
+        TEST_ENVIRONMENT = 'producao'
+        DOCKER_IMAGE = 'rafaelm-sales/sumup-automation-tests'
+        AWS_REGION = 'us-east-1'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Rafael-M-Sales/PlaywrightTests.git'
+            }
+        }
+
+        stage('Build & Test Local') {
+            steps {
+                sh 'dotnet build'
+                sh 'dotnet test --logger:allure'
+            }
+        }
+
+        stage('Docker Build & Push') {
+            steps {
+                script {
+                    docker.withRegistry('', 'docker-hub-credentials') {
+                        def customImage = docker.build("${DOCKER_IMAGE}:${env.BUILD_ID}")
+                        customImage.push()
+                        customImage.push('latest')
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to K8S (AWS EKS)') {
+            steps {
+                withAWS(credentials: 'aws-credentials', region: "${AWS_REGION}") {
+                    sh 'kubectl apply -f Infrastructure/kubernetes/k8s.yaml'
+                    sh "kubectl set image deployment/sumup-tests sumup-tests=${DOCKER_IMAGE}:${env.BUILD_ID}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            archiveArtifacts artifacts: 'Evidencias/**/*', onlyIfSuccessful: false
+        }
+        failure {
+            echo 'Pipeline falhou! Verifique as evidências e o log do Allure.'
+        }
+    }
+}
